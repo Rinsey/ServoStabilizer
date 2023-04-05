@@ -35,6 +35,7 @@ void ServoStabilizer::initialize() {
 }
 
 void ServoStabilizer::update() {
+	
   // Get MPU6050 data
   mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
   
