@@ -7,12 +7,11 @@
 */
 
 #include <ServoStabilizer.h>
-
 ServoStabilizer::ServoStabilizer() {
 
 }
 
-void ServoStabilizer::initialize() {
+void ServoStabilizer::begin() {
   Wire.begin();
   delay(1000); //Not needed or can be reduced to 500ms
 }
