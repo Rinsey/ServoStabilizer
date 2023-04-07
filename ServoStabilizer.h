@@ -34,7 +34,7 @@ class ServoStabilizer {
     float pitchError, rollError;
     float pitchIntegral, rollIntegral;
     float pitchDerivative, rollDerivative;
-	float lastPitchError, lastRollError;
+    float lastPitchError, lastRollError;
     unsigned long lastTime;
 	
 };
