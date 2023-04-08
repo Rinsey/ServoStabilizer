@@ -39,8 +39,8 @@ void ServoStabilizer::update(float pitchData, float rollData) {
   rollDerivative = (rollError - lastRollError) / (millis() - lastTime) * 1000.0;
 
   // Calculate outputs
-  pitchOutput = kp * pitchError + ki * pitchIntegral + kd * pitchDerivative;
-  rollOutput = kp * rollError + ki * rollIntegral + kd * rollDerivative;
+  pitchOutput = kpPitch * pitchError + kiPitch * pitchIntegral + kdPitch * pitchDerivative;
+  rollOutput = kpRoll * rollError + kiRoll * rollIntegral + kdRoll * rollDerivative;
 
   if (pitchOutput > 500){pitchOutput = 500;}
   if (pitchOutput < -500){pitchOutput = -500;}
@@ -54,10 +54,16 @@ void ServoStabilizer::update(float pitchData, float rollData) {
 }
 
 //PID factors declaration
-void ServoStabilizer::setGains(float kp, float ki, float kd) {
-  this->kp = kp;
-  this->ki = ki;
-  this->kd = kd;
+void ServoStabilizer::setGainsPitch(float kp, float ki, float kd) {
+  this->kpPitch = kp;
+  this->kiPitch = ki;
+  this->kdPitch = kd;
+}
+
+void ServoStabilizer::setGainsRoll(float kp, float ki, float kd) {
+  this->kpRoll = kp;
+  this->kiRoll = ki;
+  this->kdRoll = kd;
 }
 
 //Setpoints declaration
