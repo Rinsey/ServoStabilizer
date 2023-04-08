@@ -19,8 +19,9 @@ class ServoStabilizer {
     ServoStabilizer(); //Start your object in IDE
     void begin(); //Start the i2c communication, Servo to zero position (1500microSeconds)
     void update(float pitchData, float rollData); //PID outputs here
-    void setGains(float kp, float ki, float kd); //PID factors declarations
-    void setAngles(float pitchAngle, float rollAngle); //Setpoints
+    void setGainsPitch(float kp, float ki, float kd); //PID factors declarations
+    void setGainsRoll(float kp, float ki, float kd); 
+	void setAngles(float pitchAngle, float rollAngle); //Setpoints
 	float outputsPitch();
 	float outputsRoll();
 	float pitchOutput, rollOutput;
@@ -29,7 +30,8 @@ class ServoStabilizer {
 	float pitch, roll;
 	
   private:
-    float kp, ki, kd;
+    float kpRoll, kiRoll, kdRoll;
+	float kpPitch, kiPitch, kdPitch;
     float pitchSetpoint, rollSetpoint;
     float pitchError, rollError;
     float pitchIntegral, rollIntegral;
